@@ -28,16 +28,16 @@ class RouteGenerator {
       case Routes.onBoardingRoute:
         return MaterialPageRoute(builder: (_) => const OnBoardingView());
       case Routes.registerRoute:
-        // initRegisterModule();
+        initRegisterModule();
         return MaterialPageRoute(builder: (_) => const RegisterView());
       case Routes.forgotPasswordRoute:
-        // initForgotPasswordModule();
+        initForgotPasswordModule();
         return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
       case Routes.mainRoute:
-        // initHomeModule();
+        initHomeModule();
         return MaterialPageRoute(builder: (_) => const MainView());
       case Routes.storeDetailsRoute:
-        // initStoreDetailsModule();
+        initStoreDetailsModule();
         return MaterialPageRoute(builder: (_) => const StoreDetailsView());
       default:
         return unDefinedRoute();

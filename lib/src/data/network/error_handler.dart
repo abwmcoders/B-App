@@ -1,7 +1,8 @@
-// ignore_for_file: constant_identifier_names
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names, deprecated_member_use
 
-import 'package:dartz/dartz.dart';
+import 'package:commerce/src/presentation/resources/string_manager.dart';
 import 'package:dio/dio.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'failure.dart';
 
@@ -42,25 +43,24 @@ class ResponseCode {
 }
 
 class ResponseMessage {
-  static const String SUCCESS = "Success";
-  static const String NO_CONTENT = "Success with no content";
-  static const String BAD_REQUEST = "Bad request, try again later";
-  static const String FORBIDDEN = "Forbidden request, try again later";
-  static const String UNAUTHORIZED = "User is not authorized, try again later";
-  static const String NOT_FOUND = "url is not found, try again later";
-  static const String INTERNAL_SERVER_ERROR =
-      "Something went wrong, We are working on it";
+  static String SUCCESS = AppStrings.success.tr();
+  static String NO_CONTENT = AppStrings.noContent.tr();
+  static String BAD_REQUEST = AppStrings.badRequestError.tr();
+  static String FORBIDDEN = AppStrings.forbiddenError.tr();
+  static String UNAUTHORIZED = AppStrings.unauthorizedError.tr();
+  static String NOT_FOUND = AppStrings.notFoundError.tr();
+  static String INTERNAL_SERVER_ERROR = AppStrings.internalServerError.tr();
 
   // local status code
-  static const String UNKNOWN = "Something went wrong, try again later";
+  static String UNKNOWN = AppStrings.unknownError.tr();
   static const String CONNECTION_TIMEOUT =
       "Connection time out, try again later";
   static const String CANCEL = "Request has being canceled, try again later";
   static const String RECEIVE_TIMEOUT = "Time out, try again later";
   static const String SEND_TIMEOUT = "Time out, try again later";
-  static const String CACHE_ERROR = "Cache error, try again later";
-  static const String NO_INTERNET_CONNECTION =
-      "No Internet connection, please connect to a wifi or mobile network";
+  static String CACHE_ERROR = AppStrings.cacheError.tr();
+  static String NO_INTERNET_CONNECTION =
+      AppStrings.noInternetError.tr();
 }
 
 extension DataSourceExtension on DataSource {

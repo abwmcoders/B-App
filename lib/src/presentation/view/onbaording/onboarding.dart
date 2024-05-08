@@ -3,10 +3,13 @@ import 'package:commerce/src/presentation/resources/color_manager.dart';
 import 'package:commerce/src/presentation/resources/string_manager.dart';
 import 'package:commerce/src/presentation/resources/value_manager.dart';
 import 'package:commerce/src/presentation/view/onbaording/v_model/onboarding_v_model.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../app/app_prefs.dart';
+import '../../../app/di.dart';
 import '../../../domain/model/model.dart';
 import '../../resources/routes_manager.dart';
 
@@ -20,8 +23,10 @@ class OnBoardingView extends StatefulWidget {
 class _OnBoardingViewState extends State<OnBoardingView> {
   final PageController _pageController = PageController(initialPage: 0);
   final OnBoardingViewModel _viewModel = OnBoardingViewModel();
+  final AppPreferences _appPreferences = instance<AppPreferences>();
 
   _bind() {
+    _appPreferences.setOnBoardingViewed();
     _viewModel.start();
   }
 
@@ -89,7 +94,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     );
                   },
                   child: Text(
-                    AppStrings.skip,
+                    AppStrings.skip.tr(),
                     textAlign: TextAlign.end,
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),

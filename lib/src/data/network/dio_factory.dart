@@ -13,18 +13,19 @@ const String AUTHORIZATION = 'authorization';
 const String DEFAULT_LANGUAGE = 'language';
 
 class DioFactory {
-  AppPreferences _appPreferences;
+  final AppPreferences _appPreferences;
   DioFactory(this._appPreferences);
 
   Future<Dio> getDio() async {
     Dio dio = Dio();
     int _timeOut = 60 * 1000;
     String language = await _appPreferences.getAppLanguage();
-
+    String token = await _appPreferences.getToken();
     Map<String, String> headers = {
       CONTENT_TYPE: APPLICATION_JSON,
       ACCEPT: APPLICATION_JSON,
-      AUTHORIZATION: Constant.token,
+      //AUTHORIZATION: Constant.token,
+      AUTHORIZATION: token,
       DEFAULT_LANGUAGE: language,
     };
 
@@ -36,7 +37,9 @@ class DioFactory {
     );
 
     if (kReleaseMode) {
-      print("Release mode no logs");
+      if (kDebugMode) {
+        print("Release mode no logs");
+      }
     } else {
       dio.interceptors.add(
         PrettyDioLogger(
