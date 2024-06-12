@@ -18,6 +18,7 @@ class SplashView extends StatefulWidget {
 class _SplashViewState extends State<SplashView> {
   Timer? _timer;
   final AppPreferences _appPreferences = instance<AppPreferences>();
+  
   _startDelay() {
     _timer = Timer(const Duration(seconds: 4), _goNext);
   }

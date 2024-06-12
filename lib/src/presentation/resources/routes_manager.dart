@@ -5,8 +5,6 @@ import '../../app/di.dart';
 import '../view/view.dart';
 import 'string_manager.dart';
 
-
-
 class Routes {
   static const String splashRoute = "/";
   static const String onBoardingRoute = "/onBoarding";
@@ -46,12 +44,12 @@ class RouteGenerator {
 
   static Route<dynamic> unDefinedRoute() {
     return MaterialPageRoute(
-        builder: (_) => Scaffold(
-              appBar: AppBar(
-                title: const Text(AppStrings.noRouteFound).tr(),
-              ),
-              body: Center(child: const Text(AppStrings.noRouteFound).tr()),
-            ));
+      builder: (_) => Scaffold(
+        appBar: AppBar(
+          title: const Text(AppStrings.noRouteFound).tr(),
+        ),
+        body: Center(child: const Text(AppStrings.noRouteFound).tr()),
+      ),
+    );
   }
 }
-
